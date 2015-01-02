@@ -26,11 +26,13 @@ Plugin 'gmarik/Vundle.vim'
 "Plugin 'user/L9', {'name': 'newL9'}
 
 "My Bundle
-Bundle 'SirVer/ultisnips'
-Bundle 'honza/vim-snippets'
 Bundle 'https://github.com/Lokaltog/vim-powerline.git' 
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'scrooloose/syntastic'
+Bundle 'SirVer/ultisnips'
+Bundle 'https://github.com/honza/vim-snippets'
+Bundle 'scrooloose/nerdtree'
+Bundle 'molokai'
 "End My Bundle
 
 " All of your Plugins must be added before the following line
@@ -61,10 +63,21 @@ set ruler
 set incsearch
 nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
 set modeline
-set background=dark
+"set background=dark
+"molokai
+if has("gui_running")
+    let g:isGUI = 1
+	colorscheme molokai
+	let g:rehash256 = 1
+	let g:molokai_original = 1
+else
+	let g:isGUI = 0
+	set background =dark
+endif
+"set background=dark
 "HighLight
 set cursorline
-hi CursorLine cterm=NONE ctermbg=darkyellow guibg=darkred guifg=white
+hi CursorLine cterm=NONE ctermbg=black guibg=black guifg=NONE
 "hi CursorLine cterm=NONE ctermbg=darkred ctermfg=blue guibg=darkred guifg=white
 "hi Cursor guibg=#dddddd guifg=Black
 "hi lCursor guibg=Cyan guifg=Black
@@ -100,6 +113,12 @@ let g:ycm_filetype_blacklist = {
       \}
 "YouCompleteMe
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nnoremap <F12> :YcmDiags<CR>
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 let g:ycm_filepath_completion_use_working_dir = 1
 let g:syntasic_always_populate_loc_list = 1
+"NERDTREE
+map <F6> :NERDTreeToggle<CR>
+let g:NERDTreeWinPos = "left"
+let g:NERDChristmasTree = 1
+let g:NERDTreeWinSize = 20
