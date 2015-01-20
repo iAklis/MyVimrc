@@ -56,9 +56,11 @@ set t_Co=256
 set autoindent
 set smartindent
 set noexpandtab
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set smarttab
+"set list listchars=tab:--
+set softtabstop=2
 set ruler
 set incsearch
 nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
@@ -121,4 +123,5 @@ let g:syntasic_always_populate_loc_list = 1
 map <F6> :NERDTreeToggle<CR>
 let g:NERDTreeWinPos = "left"
 let g:NERDChristmasTree = 1
-let g:NERDTreeWinSize = 20
+let g:NERDTreeWinSize = 18
+let g:NERDTreeAutoCenter = 1
