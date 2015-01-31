@@ -64,6 +64,7 @@ set softtabstop=2
 set ruler
 set incsearch
 nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
+nnoremap <F3> :color molokai<CR>
 set modeline
 "set background=dark
 "molokai
