@@ -24,7 +24,6 @@ Plugin 'gmarik/Vundle.vim'
 "Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Avoid a name conflict with L9
 "Plugin 'user/L9', {'name': 'newL9'}
-
 "My Bundle
 Bundle 'https://github.com/Lokaltog/vim-powerline.git' 
 Bundle 'Valloric/YouCompleteMe'
@@ -56,6 +55,7 @@ set t_Co=256
 set autoindent
 set smartindent
 set noexpandtab
+set backspace=indent,eol,start
 set tabstop=2
 set shiftwidth=2
 set smarttab
@@ -63,6 +63,7 @@ set smarttab
 set softtabstop=2
 set ruler
 set incsearch
+set mouse=a
 nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
 nnoremap <F3> :color molokai<CR>
 set modeline
@@ -74,8 +75,11 @@ if has("gui_running")
 	let g:rehash256 = 1
 	let g:molokai_original = 1
 else
+	colorscheme molokai
+	let g:rehash256 = 1
+	let g:molokai_original = 1
 	let g:isGUI = 0
-	set background =dark
+"	set background =dark
 endif
 "set background=dark
 "HighLight
@@ -92,6 +96,8 @@ if has("vms")
 else
 	set backup
 endif
+"<leader>
+let mapleader=","
 
 "vim-powerline
 set laststatus=2
@@ -126,3 +132,6 @@ let g:NERDTreeWinPos = "left"
 let g:NERDChristmasTree = 1
 let g:NERDTreeWinSize = 18
 let g:NERDTreeAutoCenter = 1
+
+"MAP the ESC
+inoremap jj <ESC>
